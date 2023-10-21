@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fagiusep <fagiusep@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: fausto <fausto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 10:17:40 by fagiusep          #+#    #+#             */
-/*   Updated: 2021/09/08 19:06:19 by fagiusep         ###   ########.fr       */
+/*   Updated: 2023/10/21 10:54:08 by fausto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 static char	*gnl_prep_backup(char **backup)
 {
@@ -96,4 +97,21 @@ char	*get_next_line(int fd)
 	free(buff);
 	buff = NULL;
 	return (line);
+}
+
+int	main()
+{
+	char	*str = NULL;
+
+	while (1)
+	{
+		str = get_next_line(0);
+		printf("\n");
+		printf("%s", str);
+		free(str);
+		if (str == NULL)
+			break;
+	}
+	return (1);
+
 }
